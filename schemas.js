@@ -26,16 +26,19 @@ process.on('SIGINT', function() {
 var measureSchema = new mongoose.Schema({
 	variable: {
 		type: mongoose.Schema.Types.ObjectId,
-		required: true
+		required: true,
+		index: true
 	},
 	date: {
 		type: Date,
 		required: true,
-		default: Date.now
+		default: Date.now,
+		index: true
 	},
 	val: {
 		type: Number,
-		required: true
+		required: true,
+		index: true
 	}
 });
 
@@ -44,11 +47,13 @@ mongoose.model('Measure', measureSchema, 'measures');
 var variableSchema = new mongoose.Schema({
 	label: {
 		type: String,
-		required: true
+		required: true,
+		index: true
 	},
 	sensor: {
 		type: mongoose.Schema.Types.ObjectId,
-		required: true
+		required: true,
+		index: true
 	}
 });
 
@@ -57,11 +62,13 @@ mongoose.model('Variable', variableSchema, 'variables');
 var sensorSchema = new mongoose.Schema({
 	tagId: {
 		type: String,
-		required: true
+		required: true,
+		index: true
 	},
 	label: {
 		type: String,
-		required: true
+		required: true,
+		index: true
 	}
 });
 
